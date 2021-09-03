@@ -1,0 +1,1041 @@
+{
+	"components": {
+		"examples": {},
+		"headers": {},
+		"parameters": {},
+		"requestBodies": {},
+		"responses": {},
+		"schemas": {
+			"FOOD": {
+				"properties": {
+					"_id": {
+						"type": "string"
+					},
+					"foodname": {
+						"type": "string"
+					},
+					"price": {
+						"type": "number",
+						"format": "double"
+					},
+					"type": {
+						"type": "string"
+					},
+					"size": {
+						"type": "string"
+					}
+				},
+				"required": [
+					"_id",
+					"foodname",
+					"price",
+					"type",
+					"size"
+				],
+				"type": "object",
+				"additionalProperties": false
+			},
+			"SaveUpdateResWaiter": {
+				"properties": {
+					"_id": {
+						"type": "string"
+					},
+					"name": {
+						"type": "string"
+					},
+					"email": {
+						"type": "string"
+					},
+					"phone": {
+						"type": "number",
+						"format": "double"
+					},
+					"password": {
+						"type": "string"
+					},
+					"accesstoken": {},
+					"order": {
+						"items": {
+							"$ref": "#/components/schemas/FOOD"
+						},
+						"type": "array"
+					}
+				},
+				"required": [
+					"_id",
+					"name",
+					"email",
+					"phone",
+					"password",
+					"accesstoken",
+					"order"
+				],
+				"type": "object",
+				"additionalProperties": false
+			},
+			"GetReqWaiter": {
+				"properties": {
+					"_id": {
+						"type": "string"
+					}
+				},
+				"required": [
+					"_id"
+				],
+				"type": "object",
+				"additionalProperties": false
+			},
+			"SaveReqWaiter": {
+				"properties": {
+					"name": {
+						"type": "string"
+					},
+					"email": {
+						"type": "string"
+					},
+					"phone": {
+						"type": "number",
+						"format": "double"
+					},
+					"password": {
+						"type": "string"
+					}
+				},
+				"required": [
+					"name",
+					"email",
+					"phone",
+					"password"
+				],
+				"type": "object",
+				"additionalProperties": false
+			},
+			"UpdateReqWaiter": {
+				"properties": {
+					"_id": {
+						"type": "string"
+					},
+					"name": {
+						"type": "string"
+					},
+					"email": {
+						"type": "string"
+					},
+					"phone": {
+						"type": "number",
+						"format": "double"
+					},
+					"password": {
+						"type": "string"
+					}
+				},
+				"required": [
+					"_id",
+					"name",
+					"email",
+					"phone",
+					"password"
+				],
+				"type": "object",
+				"additionalProperties": false
+			},
+			"DelReqWaiter": {
+				"properties": {
+					"_id": {
+						"type": "string"
+					}
+				},
+				"required": [
+					"_id"
+				],
+				"type": "object",
+				"additionalProperties": false
+			},
+			"LoginWaiter": {
+				"properties": {
+					"email": {
+						"type": "string"
+					},
+					"password": {
+						"type": "string"
+					}
+				},
+				"required": [
+					"email",
+					"password"
+				],
+				"type": "object",
+				"additionalProperties": false
+			},
+			"SaveUpdateResOrder": {
+				"properties": {
+					"_id": {
+						"type": "string"
+					},
+					"customername": {
+						"type": "string"
+					},
+					"customeremail": {
+						"type": "string"
+					},
+					"customerphone": {
+						"anyOf": [
+							{
+								"type": "string"
+							},
+							{
+								"type": "number",
+								"format": "double"
+							}
+						]
+					},
+					"customertablenumber": {
+						"type": "number",
+						"format": "double"
+					},
+					"customerbill": {
+						"type": "number",
+						"format": "double"
+					},
+					"orderstatus": {
+						"type": "string"
+					},
+					"order": {
+						"items": {
+							"$ref": "#/components/schemas/FOOD"
+						},
+						"type": "array"
+					}
+				},
+				"required": [
+					"_id",
+					"customername",
+					"customeremail",
+					"customerphone",
+					"customertablenumber",
+					"customerbill",
+					"orderstatus",
+					"order"
+				],
+				"type": "object",
+				"additionalProperties": false
+			},
+			"GetReqOrder": {
+				"properties": {
+					"_id": {
+						"type": "string"
+					}
+				},
+				"required": [
+					"_id"
+				],
+				"type": "object",
+				"additionalProperties": false
+			},
+			"SaveReqOrder": {
+				"properties": {
+					"customername": {
+						"type": "string"
+					},
+					"customeremail": {
+						"type": "string"
+					},
+					"customerphone": {
+						"anyOf": [
+							{
+								"type": "string"
+							},
+							{
+								"type": "number",
+								"format": "double"
+							}
+						]
+					},
+					"customertablenumber": {
+						"type": "number",
+						"format": "double"
+					},
+					"orderstatus": {
+						"type": "string"
+					},
+					"order": {
+						"items": {
+							"type": "string"
+						},
+						"type": "array"
+					}
+				},
+				"required": [
+					"customername",
+					"customeremail",
+					"customerphone",
+					"customertablenumber",
+					"orderstatus",
+					"order"
+				],
+				"type": "object",
+				"additionalProperties": false
+			},
+			"DelReqOrder": {
+				"properties": {
+					"_id": {
+						"type": "string"
+					}
+				},
+				"required": [
+					"_id"
+				],
+				"type": "object",
+				"additionalProperties": false
+			},
+			"UpdateReqOrder": {
+				"properties": {
+					"_id": {
+						"type": "string"
+					},
+					"customername": {
+						"type": "string"
+					},
+					"customeremail": {
+						"type": "string"
+					},
+					"customerphone": {
+						"anyOf": [
+							{
+								"type": "string"
+							},
+							{
+								"type": "number",
+								"format": "double"
+							}
+						]
+					},
+					"customertablenumber": {
+						"type": "number",
+						"format": "double"
+					},
+					"customerbill": {
+						"type": "number",
+						"format": "double"
+					},
+					"orderstatus": {
+						"type": "string"
+					},
+					"order": {
+						"items": {
+							"type": "string"
+						},
+						"type": "array"
+					}
+				},
+				"required": [
+					"_id",
+					"customername",
+					"customeremail",
+					"customerphone",
+					"customertablenumber",
+					"customerbill",
+					"orderstatus",
+					"order"
+				],
+				"type": "object",
+				"additionalProperties": false
+			},
+			"SaveResFood": {
+				"properties": {
+					"_id": {
+						"type": "string"
+					},
+					"foodname": {
+						"type": "string"
+					},
+					"price": {
+						"type": "number",
+						"format": "double"
+					},
+					"type": {
+						"type": "string"
+					},
+					"size": {
+						"type": "string"
+					}
+				},
+				"required": [
+					"_id",
+					"foodname",
+					"price",
+					"type",
+					"size"
+				],
+				"type": "object",
+				"additionalProperties": false
+			},
+			"SaveReqFood": {
+				"properties": {
+					"foodname": {
+						"type": "string"
+					},
+					"price": {
+						"type": "number",
+						"format": "double"
+					},
+					"type": {
+						"type": "string"
+					},
+					"size": {
+						"type": "string"
+					}
+				},
+				"required": [
+					"foodname",
+					"price",
+					"type",
+					"size"
+				],
+				"type": "object",
+				"additionalProperties": false
+			},
+			"UpdateReqFood": {
+				"properties": {
+					"_id": {
+						"type": "string"
+					},
+					"foodname": {
+						"type": "string"
+					},
+					"price": {
+						"type": "number",
+						"format": "double"
+					},
+					"type": {
+						"type": "string"
+					},
+					"size": {
+						"type": "string"
+					}
+				},
+				"required": [
+					"_id",
+					"foodname",
+					"price",
+					"type",
+					"size"
+				],
+				"type": "object",
+				"additionalProperties": false
+			},
+			"DelReqFood": {
+				"properties": {
+					"_id": {
+						"type": "string"
+					}
+				},
+				"required": [
+					"_id"
+				],
+				"type": "object",
+				"additionalProperties": false
+			}
+		},
+		"securitySchemes": {
+			"jwt": {
+				"type": "http",
+				"scheme": "Bearer",
+				"name": "Authorization",
+				"in": "header"
+			},
+			"api_key": {
+				"type": "apiKey",
+				"name": "admin_token",
+				"in": "query"
+			}
+		}
+	},
+	"info": {
+		"title": "HOS",
+		"version": 4,
+		"description": "We are going to build restaurant api",
+		"license": {
+			"name": "MIT"
+		},
+		"contact": {
+			"name": "admin",
+			"email": "admin@mail.com"
+		}
+	},
+	"openapi": "3.0.0",
+	"paths": {
+		"/waiter/getwaiter": {
+			"post": {
+				"operationId": "Getwaiter",
+				"responses": {
+					"200": {
+						"description": "Ok",
+						"content": {
+							"application/json": {
+								"schema": {
+									"$ref": "#/components/schemas/SaveUpdateResWaiter"
+								}
+							}
+						}
+					}
+				},
+				"tags": [
+					"Admin"
+				],
+				"security": [
+					{
+						"api_key": []
+					}
+				],
+				"parameters": [],
+				"requestBody": {
+					"required": true,
+					"content": {
+						"application/json": {
+							"schema": {
+								"$ref": "#/components/schemas/GetReqWaiter"
+							}
+						}
+					}
+				}
+			}
+		},
+		"/waiter/getallwaiter": {
+			"get": {
+				"operationId": "GetallWaiter",
+				"responses": {
+					"200": {
+						"description": "Ok",
+						"content": {
+							"application/json": {
+								"schema": {
+									"items": {
+										"$ref": "#/components/schemas/SaveUpdateResWaiter"
+									},
+									"type": "array"
+								}
+							}
+						}
+					},
+					"400": {
+						"description": "heello"
+					}
+				},
+				"tags": [
+					"Admin"
+				],
+				"security": [
+					{
+						"api_key": []
+					}
+				],
+				"parameters": []
+			}
+		},
+		"/waiter/savewaiter": {
+			"post": {
+				"operationId": "Savewaiter",
+				"responses": {
+					"200": {
+						"description": "Ok",
+						"content": {
+							"application/json": {
+								"schema": {
+									"$ref": "#/components/schemas/SaveUpdateResWaiter"
+								}
+							}
+						}
+					}
+				},
+				"tags": [
+					"Admin"
+				],
+				"security": [
+					{
+						"api_key": []
+					}
+				],
+				"parameters": [],
+				"requestBody": {
+					"required": true,
+					"content": {
+						"application/json": {
+							"schema": {
+								"$ref": "#/components/schemas/SaveReqWaiter"
+							}
+						}
+					}
+				}
+			}
+		},
+		"/waiter/updatewaiter": {
+			"put": {
+				"operationId": "Updatewaiter",
+				"responses": {
+					"200": {
+						"description": "Ok",
+						"content": {
+							"application/json": {
+								"schema": {
+									"$ref": "#/components/schemas/SaveUpdateResWaiter"
+								}
+							}
+						}
+					}
+				},
+				"tags": [
+					"Admin"
+				],
+				"security": [
+					{
+						"api_key": []
+					}
+				],
+				"parameters": [],
+				"requestBody": {
+					"required": true,
+					"content": {
+						"application/json": {
+							"schema": {
+								"$ref": "#/components/schemas/UpdateReqWaiter"
+							}
+						}
+					}
+				}
+			}
+		},
+		"/waiter/deletewaiter": {
+			"delete": {
+				"operationId": "Deletewaiter",
+				"responses": {
+					"200": {
+						"description": "Product Deleted",
+						"content": {
+							"application/json": {
+								"schema": {}
+							}
+						}
+					}
+				},
+				"tags": [
+					"Admin"
+				],
+				"security": [
+					{
+						"api_key": []
+					}
+				],
+				"parameters": [],
+				"requestBody": {
+					"required": true,
+					"content": {
+						"application/json": {
+							"schema": {
+								"$ref": "#/components/schemas/DelReqWaiter"
+							}
+						}
+					}
+				}
+			}
+		},
+		"/waiter/loginwaiter": {
+			"post": {
+				"operationId": "Login",
+				"responses": {
+					"200": {
+						"description": "Ok",
+						"content": {
+							"application/json": {
+								"schema": {
+									"$ref": "#/components/schemas/SaveUpdateResWaiter"
+								}
+							}
+						}
+					}
+				},
+				"tags": [
+					"Waiter"
+				],
+				"security": [],
+				"parameters": [],
+				"requestBody": {
+					"required": true,
+					"content": {
+						"application/json": {
+							"schema": {
+								"$ref": "#/components/schemas/LoginWaiter"
+							}
+						}
+					}
+				}
+			}
+		},
+		"/waiter/waiterorder": {
+			"get": {
+				"operationId": "Getwiterorder",
+				"responses": {
+					"200": {
+						"description": "Ok",
+						"content": {
+							"application/json": {
+								"schema": {
+									"$ref": "#/components/schemas/SaveUpdateResOrder"
+								}
+							}
+						}
+					}
+				},
+				"tags": [
+					"Waiter"
+				],
+				"security": [
+					{
+						"jwt": []
+					}
+				],
+				"parameters": []
+			}
+		},
+		"/order/singleorder": {
+			"post": {
+				"operationId": "Getorder",
+				"responses": {
+					"200": {
+						"description": "Ok",
+						"content": {
+							"application/json": {
+								"schema": {
+									"$ref": "#/components/schemas/SaveUpdateResOrder"
+								}
+							}
+						}
+					}
+				},
+				"tags": [
+					"Admin"
+				],
+				"security": [
+					{
+						"api_key": []
+					}
+				],
+				"parameters": [],
+				"requestBody": {
+					"required": true,
+					"content": {
+						"application/json": {
+							"schema": {
+								"$ref": "#/components/schemas/GetReqOrder"
+							}
+						}
+					}
+				}
+			}
+		},
+		"/order/singleorderbill": {
+			"post": {
+				"operationId": "Getorderbill",
+				"responses": {
+					"200": {
+						"description": "Ok",
+						"content": {
+							"application/json": {
+								"schema": {
+									"$ref": "#/components/schemas/SaveUpdateResOrder"
+								}
+							}
+						}
+					}
+				},
+				"tags": [
+					"Bill",
+					"Waiter"
+				],
+				"security": [
+					{
+						"jwt": []
+					}
+				],
+				"parameters": [],
+				"requestBody": {
+					"required": true,
+					"content": {
+						"application/json": {
+							"schema": {
+								"$ref": "#/components/schemas/GetReqOrder"
+							}
+						}
+					}
+				}
+			}
+		},
+		"/order/takeorder": {
+			"post": {
+				"operationId": "Saveorder",
+				"responses": {
+					"200": {
+						"description": "Ok",
+						"content": {
+							"application/json": {
+								"schema": {
+									"$ref": "#/components/schemas/SaveUpdateResOrder"
+								}
+							}
+						}
+					}
+				},
+				"tags": [
+					"Waiter"
+				],
+				"security": [
+					{
+						"jwt": []
+					}
+				],
+				"parameters": [],
+				"requestBody": {
+					"required": true,
+					"content": {
+						"application/json": {
+							"schema": {
+								"$ref": "#/components/schemas/SaveReqOrder"
+							}
+						}
+					}
+				}
+			}
+		},
+		"/order/deleteorder": {
+			"delete": {
+				"operationId": "Deleteorder",
+				"responses": {
+					"200": {
+						"description": "order deleted"
+					}
+				},
+				"tags": [
+					"Admin"
+				],
+				"security": [
+					{
+						"api_key": []
+					}
+				],
+				"parameters": [],
+				"requestBody": {
+					"required": true,
+					"content": {
+						"application/json": {
+							"schema": {
+								"$ref": "#/components/schemas/DelReqOrder"
+							}
+						}
+					}
+				}
+			}
+		},
+		"/order/allorder": {
+			"get": {
+				"operationId": "Getallorder",
+				"responses": {
+					"200": {
+						"description": "Ok",
+						"content": {
+							"application/json": {
+								"schema": {
+									"items": {
+										"$ref": "#/components/schemas/SaveUpdateResOrder"
+									},
+									"type": "array"
+								}
+							}
+						}
+					}
+				},
+				"tags": [
+					"Admin"
+				],
+				"security": [
+					{
+						"api_key": []
+					}
+				],
+				"parameters": []
+			}
+		},
+		"/order/updateorder": {
+			"put": {
+				"operationId": "Updateorder",
+				"responses": {
+					"200": {
+						"description": "Ok",
+						"content": {
+							"application/json": {
+								"schema": {
+									"$ref": "#/components/schemas/SaveUpdateResOrder"
+								}
+							}
+						}
+					}
+				},
+				"tags": [
+					"Admin"
+				],
+				"security": [
+					{
+						"api_key": []
+					}
+				],
+				"parameters": [],
+				"requestBody": {
+					"required": true,
+					"content": {
+						"application/json": {
+							"schema": {
+								"$ref": "#/components/schemas/UpdateReqOrder"
+							}
+						}
+					}
+				}
+			}
+		},
+		"/Food/savefood": {
+			"post": {
+				"operationId": "Savefood",
+				"responses": {
+					"200": {
+						"description": "Ok",
+						"content": {
+							"application/json": {
+								"schema": {
+									"$ref": "#/components/schemas/SaveResFood"
+								}
+							}
+						}
+					}
+				},
+				"tags": [
+					"Admin"
+				],
+				"security": [
+					{
+						"api_key": []
+					}
+				],
+				"parameters": [],
+				"requestBody": {
+					"required": true,
+					"content": {
+						"application/json": {
+							"schema": {
+								"$ref": "#/components/schemas/SaveReqFood"
+							}
+						}
+					}
+				}
+			}
+		},
+		"/Food/allfood": {
+			"get": {
+				"operationId": "Getallfood",
+				"responses": {
+					"200": {
+						"description": "Ok",
+						"content": {
+							"application/json": {
+								"schema": {
+									"items": {
+										"$ref": "#/components/schemas/SaveResFood"
+									},
+									"type": "array"
+								}
+							}
+						}
+					}
+				},
+				"tags": [
+					"Admin",
+					"Menu"
+				],
+				"security": [],
+				"parameters": []
+			}
+		},
+		"/Food/updatefood": {
+			"put": {
+				"operationId": "Updatefood",
+				"responses": {
+					"200": {
+						"description": "Ok",
+						"content": {
+							"application/json": {
+								"schema": {
+									"$ref": "#/components/schemas/SaveResFood"
+								}
+							}
+						}
+					}
+				},
+				"tags": [
+					"Admin"
+				],
+				"security": [
+					{
+						"api_key": []
+					}
+				],
+				"parameters": [],
+				"requestBody": {
+					"required": true,
+					"content": {
+						"application/json": {
+							"schema": {
+								"$ref": "#/components/schemas/UpdateReqFood"
+							}
+						}
+					}
+				}
+			}
+		},
+		"/Food/deletefood": {
+			"delete": {
+				"operationId": "Deletefood",
+				"responses": {
+					"200": {
+						"description": "Product Deleted",
+						"content": {
+							"application/json": {
+								"schema": {}
+							}
+						}
+					}
+				},
+				"tags": [
+					"Admin"
+				],
+				"security": [
+					{
+						"api_key": []
+					}
+				],
+				"parameters": [],
+				"requestBody": {
+					"required": true,
+					"content": {
+						"application/json": {
+							"schema": {
+								"$ref": "#/components/schemas/DelReqFood"
+							}
+						}
+					}
+				}
+			}
+		}
+	},
+	"servers": [
+		{
+			"url": "/"
+		}
+	]
+}

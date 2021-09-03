@@ -1,0 +1,33 @@
+{
+    "entryFile": "src/index.ts",
+    "noImplicitAdditionalProperties": "throw-on-extras",
+    "spec": {
+        "outputDirectory": "public",
+        "specVersion": 3,
+        "version":4,
+        "name":"HOS",
+        "contact":{
+            "name":"admin",
+            "email":"admin@mail.com"
+        },
+     
+        "securityDefinitions": {
+            "jwt": {
+                "type": "http",
+                "scheme":"Bearer",
+                "name": "Authorization",
+                "in": "header"
+               
+            },
+            "api_key":{
+                "type":"apiKey",
+                "name":"admin_token",
+                "in":"query"
+            }
+            
+           
+            }
+
+        }}
+
+            
