@@ -25,9 +25,10 @@ export class  WaiterRoutes {
             
             try {
                console.log(req.body)
-                const waiter:SaveUpdateResWaiter = await new WaiterController().getwaiter(<any>req.body._id)
-            
-            res.send(waiter)
+                const waiter:any = await new WaiterController().getwaiter(<any>req.body._id)
+        
+           
+            res.send({totalorders: waiter.orders.length, waiter})
             } catch (error) {
                 next(error)
             }
@@ -38,7 +39,7 @@ export class  WaiterRoutes {
                 const allwaiter: SaveUpdateResWaiter[]= await new WaiterController().getallWaiter()
               console.log('route3')
                 res.json({
-               
+                    TotalWaiters:allwaiter.length,
                     allwaiter
                 }) 
             } catch (error) {

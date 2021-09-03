@@ -36,7 +36,8 @@ const IWaiterSchema = new Schema ({
         ref:'order' 
     }]
 },{
-    timestamps:true
+    timestamps:true,
+    strict:false
 })
 
 export const WaiterSchema = model<IWAITER>('Waiter',IWaiterSchema) 

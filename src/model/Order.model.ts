@@ -35,7 +35,8 @@ const IOrderSchema = new Schema({
         ref:'food'
     }]
 },{
-    timestamps:true
+    timestamps:true,
+    strict:false
 })
 
 export const OrderSchema = model<IORDER>("order", IOrderSchema)

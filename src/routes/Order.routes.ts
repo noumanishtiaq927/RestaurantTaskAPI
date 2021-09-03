@@ -41,11 +41,12 @@ export class OrderRoutes {
                 const neworder:SaveUpdateResOrder = await new OrderController().saveorder(order)
            
               const updatewaiter = await WaiterSchema.findByIdAndUpdate(assign?._id,{$addToSet: {orders: neworder._id}},{new:true})
-            
+                const updatwae = await OrderSchema.findByIdAndUpdate(neworder._id,{$set:{waiterid:req.user.id}},{new:true})
                 res.json({
-                    message:'waiter added successfully',
+                    message:'order added successfully',
                     neworder,
-                     updatewaiter
+                     updatewaiter,
+                     updatwae
                  
                 })
             } catch (error) {
@@ -55,7 +56,7 @@ export class OrderRoutes {
         this.router.get('/allorder',apikeyauth, async(req,res,next)=>{
             try {
                 const allorders:any = await new OrderController().getallorder()
-                return res.json({allorders})
+                return res.json({TotalOrder:allorders.length, allorders})
             } catch (error) {
                 return next(error)
             }
@@ -77,7 +78,8 @@ export class OrderRoutes {
 
                 const updateOrder = await OrderSchema.findByIdAndUpdate({_id:singleorderbill._id},{$set:{customerbill:totalprice}},{new:true}).populate('order')
                 console.log(totalprice)
-                return res.json({BillwithOrder: updateOrder})
+                console.log(updateOrder)
+                return res.json({TotalBill:totalprice , TotalItems:updateOrder?.order.length, BillwithOrder: updateOrder})
             } catch (error) {
                 return next(error)
             }
